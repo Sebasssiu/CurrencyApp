@@ -1,12 +1,11 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Guide to start
 
 ### Terminal
 
 Open the terminal, then search for the downloaded directory with "cd".
+
+### `npm install`
+Creates the dependency folder node_modules.
 
 ### `npm start`
 
