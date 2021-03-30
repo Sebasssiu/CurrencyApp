@@ -1,5 +1,8 @@
 ## Guide to start
 
+## Requirements
+1. Have node installed
+
 ### Terminal
 
 Open the terminal, then search for the downloaded directory with "cd".
