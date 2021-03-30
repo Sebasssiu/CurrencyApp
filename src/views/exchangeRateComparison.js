@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 
 const ExchangeComparison = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState({isLoading: true})
   const [body, setBody] = useState({currency: 'USD'})
+  const [isLoading, setIsLoading] = useState(false)
   const today = () => {
     var today = new Date()
     var dd = today.getDate()
@@ -19,6 +20,7 @@ const ExchangeComparison = () => {
   }
 
   const getData = () => {
+    setIsLoading(true)
     fetch('http://127.0.0.1:8000/exchangeRateComparison/',{
       method: 'POST',
       headers: {
@@ -27,7 +29,10 @@ const ExchangeComparison = () => {
       body: JSON.stringify(body)
     })
     .then(response => response.json())
-    .then(response => setData(response))
+    .then(response => {
+      setData(response)
+      setIsLoading(false)
+    })
     .catch(error => setData(error))
   }
 
@@ -83,6 +88,9 @@ const ExchangeComparison = () => {
           <h5>max: {data.max}</h5>
           <h5>min: {data.min}</h5>
         </>
+      ) : null}
+      {isLoading ? (
+        <h5>Is loading...</h5>
       ) : null}
     </>
   )
